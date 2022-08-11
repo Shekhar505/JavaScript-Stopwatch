@@ -1,0 +1,43 @@
+body{
+    background-color: sandybrown;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#container{
+    color: white;
+}
+
+.digit{
+    font-size: 150px;
+    font-weight: bold;
+}
+.text{
+    font-size: 30px;
+    font-weight: bold;
+}
+#btn-container{
+    text-align: center;
+    margin-top: 40px;
+}
+
+.btn{
+    padding: 8px 26px;
+    font-size: 15px;
+    margin: 0px 15px;
+    color: azure;
+    border: 0px;
+    cursor: pointer;
+}
+
+#start{
+    background-color: greenyellow;
+}
+#stop{
+    background-color: blueviolet;
+}
+#reset{
+    background-color: crimson;
+}
