@@ -1,3 +1,5 @@
+/* Initializing count variable for hrs, mins, secs and count(ms) respectively */
+
 var hr = 0;
 var min = 0;
 var sec = 0;
@@ -5,75 +7,81 @@ var count = 0;
 
 var timer = false;
 
-function start(){
-    console.log('hey');
+/* Creating basic functionality start, stop and reset for our stopWatch  */
+
+function start() {
     timer = true;
     stopwatch();
 }
-function stop(){
-    console.log('hey');
-    timer =  false;
+function stop() {
+    timer = false;
 }
-function reset(){
-    console.log('hey');
-
+function reset() {
     timer = false;
     hr = 0;
     sec = 0;
     min = 0;
     count = 0;
-    document.getElementById('hr').innerHTML = '00';
-    document.getElementById('min').innerHTML = '00';
-    document.getElementById('sec').innerHTML = '00';
-    document.getElementById('count').innerHTML = '00';
+    document.getElementById('hr').innerHTML = "00";
+    document.getElementById('min').innerHTML = "00";
+    document.getElementById('sec').innerHTML = "00";
+    document.getElementById('count').innerHTML = "00";
 }
 
-function stopwatch(){
-    if(timer == true){
+/* Main Logic goes here which handle the count functionalities for our stopwatch */
+
+function stopwatch() {
+    if (timer == true) {
         count = count + 1;
 
 
-        if(count == 100){
+        if (count == 100) {
             sec = sec + 1;
             count = 0;
         }
 
-        if(sec == 60){
-           min = min + 1; 
-           sec = 0;
+        if (sec == 60) {
+            min = min + 1;
+            sec = 0;
         }
 
-        if(min == 60){
+        if (min == 60) {
             hr = hr + 1;
             min = 0;
             sec = 0;
         }
 
+
+        /*  Converting Every count's int type to String so that our count remains two digits Number Everytime*/
+
         var hrString = hr;
         var minString = min;
         var secString = sec;
         var countString = count
-        
-        
-        if(hr < 10){
+
+
+        if (hr < 10) {
             hrString = '0' + hrString
         }
-        if(min < 10){
-            hrString = '0' + hrString
+        if (min < 10) {
+            minString = '0' + minString
         }
-        if(sec < 10){
-            hrString = '0' + hrString
+        if (sec < 10) {
+            secString = '0' + secString
         }
-        if(count < 10){
-            hrString = '0' + hrString
+        if (count < 10) {
+            countString = '0' + countString
         }
+
+        /* Fetching Each Id from the HTML document and changing there innerHTML to our Logic */
 
         document.getElementById('hr').innerHTML = hrString;
         document.getElementById('min').innerHTML = minString;
         document.getElementById('sec').innerHTML = secString;
-        document.getElementById('count').innerHTML = countString;
+        document.getElementById("count").innerHTML = countString;
 
+        /* A setTimeout Function for basically calling stopwatch function and re-running it after every 10 milliseconds */
 
-        setTimeout('stopwatch()', 10);
+        setTimeout("stopwatch()", 10);
     }
 }
